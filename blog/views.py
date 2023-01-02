@@ -21,7 +21,7 @@ class BlogMVS(ModelViewSet):
     filterset_fields=['id','title','content'] #filtreleme için alanlar
     search_fields=['title','content'] # search yapılacak alanlar belirlendi
     
-    def get_queryset(self):
+    def get_queryset(self): ## user sadece kendi eklediklerini görebilsin diye bu kısmı ekleyip override ettik
         queryset = super().get_queryset()
         if self.request.user.is_superuser: #super user ise hepsini gör is_staff vs de konulabilirdi
             return queryset
