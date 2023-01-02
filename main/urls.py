@@ -7,5 +7,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', real_home),
     path("api/", include("blog.urls")),
-    path("user/login/",  views.obtain_auth_token),
+    path("user/", include("user.urls")),
+    # path("user/login/",  views.obtain_auth_token),
 ]
